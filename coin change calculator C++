@@ -1,0 +1,37 @@
+
+#include <iostream>
+
+int main() {
+    // insert code here...
+    int change_amount{};
+    
+    std::cout << "Hello, Welcome to coin change calculator!\n";
+    std::cout << "Enter the amount in dollars and cents:  \n";
+    std::cin >> change_amount;
+    
+    const int quarter_value{25};
+    const int dollar_value{100};
+    const int dime_value{10};
+    const int nickel_value{5};
+    int balance{}, dollars{}, quarters{}, dimes{}, nickels{}, pennies = 0;
+    
+    dollars = change_amount/dollar_value;
+    balance = change_amount % dollar_value;
+    quarters = balance/quarter_value;
+    balance %=  quarters * quarter_value;
+    dimes = balance/dime_value;
+    balance %= dimes * dollar_value;
+    nickels = balance/nickel_value;
+    balance %= nickels * nickel_value;
+    pennies = balance;
+    
+    std::cout << "The change can be provided as follows: \n";
+    std::cout << "Dollars(s): " << dollars << std::endl;
+    std::cout << "Quarter(s): " << quarters << std::endl;
+    std::cout << "Dimes(s):  " << dimes << std::endl;
+    std::cout << "Nickel(s): " << nickels << std::endl;
+    std::cout << "Penny(s): " << pennies << std::endl;
+    
+    return 0;
+    
+}
